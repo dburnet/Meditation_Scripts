@@ -54,21 +54,21 @@ function AIS = me_ForLoopScore(filename)
         end
     end
     
-    for a = 1:length(Timepoints)
-        if a == 1
-            fivemin   = EEG_only.data(:,1:Timepoints(a));
-            blob1.Fs = 128;
-            blob1.data = fivemin';
-            tempvar = averageAlphaPowerByChannel(blob1);
-            AIS{a}   = tempvar(3:4);
-        elseif Timepoints(a) > Timepoints(a-1)
-            fivemin   = EEG_only.data(:,1:Timepoints(a));
-            blob1.Fs = 128;
-            blob1.data = fivemin';
-            tempvar = averageAlphaPowerByChannel(blob1);
-            AIS{a}   = tempvar(3:4);
-        end
-    end
+%     for a = 1:length(Timepoints)
+%         if a == 1
+%             fivemin   = EEG_only.data(:,1:Timepoints(a));
+%             blob1.Fs = 128;
+%             blob1.data = fivemin';
+%             tempvar = averageAlphaPowerByChannel(blob1);
+%             AIS{a}   = tempvar(3:4);
+%         elseif Timepoints(a) > Timepoints(a-1)
+%             fivemin   = EEG_only.data(:,1:Timepoints(a));
+%             blob1.Fs = 128;
+%             blob1.data = fivemin';
+%             tempvar = averageAlphaPowerByChannel(blob1);
+%             AIS{a}   = tempvar(3:4);
+%         end
+%     end
 
 % 
 %   figure;

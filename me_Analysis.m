@@ -3,10 +3,16 @@
 %score. It will produce one graph per subject per session. It needs to save
 %the graphs so they can be opened later. 
 
-function AIS = ge_meditationAnalysis(filename)
+function AIS = me_Analysis(filename)
 
-
-M = csvread(filename,0,1)%this reads in the file without the subnumb or the file name, change if that changes
+if regexp(filename, 'csv$')
+     M = csvread(filename, 0, 1);
+ elseif regexp(filename, 'xlsx$')
+     M = xlsread(filename,0,1);
+ else 
+     error('me_restingAsym: File type unknown');
+ end 
+% M = csvread(filename,',',0,1)%this reads in the file without the subnumb or the file name, change if that changes
 %here each row needs to be assigned to a different variable
 dimensions = size(M);
     for i = 1:dimensions(1)
@@ -22,6 +28,8 @@ dimensions = size(M);
         figtit = regexprep(TS,' ','_')
         savefig(figtit)
     end
+    
+    
 end
 
 

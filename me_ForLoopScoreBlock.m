@@ -22,7 +22,7 @@ function me_ForLoopScoreBlock(files, outfile)
         namelist  = strsplit(cleanname, {'-','_'});
         subnum    = namelist{1};
 %         handorder  = namelist{3};
-        sessionnumber  = regexprep(namelist{2}, '^session', '');
+        sessionnumber  = regexprep(namelist{2}, '^session,^Session', '');
         % Data analysis to get AIS's:
 
         x = me_ForLoopScore(file.name);
