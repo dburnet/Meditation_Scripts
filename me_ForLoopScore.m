@@ -1,7 +1,7 @@
 %for half between markers compute the alpha imbalance this feeds into
 %BlockChop 
 function AIS = me_ForLoopScore(filename)
-
+% use for meditation analyses
     lowerBound  = 2;
     upperBound  = 41;
     eegChannels = 1:14;
@@ -48,7 +48,7 @@ function AIS = me_ForLoopScore(filename)
             blob1.Fs = 128;
             blob1.data = fivemin';
             tempvar = alphaImbalance(blob1);
-            AIS{t}   = tempvar(3:4);
+            AIS{t}   = tempvar(3:4), Timepoints;
 %             tempvar2 = averageAlphaPowerByChannel(blob1);
 %             AIS{t} = tempvar2(3:4);
         end

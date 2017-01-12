@@ -6,9 +6,9 @@
 function AIS = me_Analysis(filename)
 
 if regexp(filename, 'csv$')
-     M = csvread(filename, 0, 1);
+     M = csvread(filename, 1, 1);
  elseif regexp(filename, 'xlsx$')
-     M = xlsread(filename,0,1);
+     M = xlsread(filename,1,1);
  else 
      error('me_restingAsym: File type unknown');
  end 
