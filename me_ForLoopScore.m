@@ -17,21 +17,21 @@ function AIS = me_ForLoopScore(filename)
     EEG_only = pop_select(EEG2, 'channel', eegChannels);
     EEG_only = pop_eegfilt(EEG_only, lowerBound, upperBound, [], [0], 0, 0, 'fir1', 0);
    
-    recordinglength = ceil(size(EEG_only.data))
+    recordinglength = ceil(size(EEG_only.data));
     
-    sessionlength = (recordinglength(2)/128)/60
+    sessionlength = (recordinglength(2)/128)/60;
   
  
-    a       = (1 + min(38399,recordinglength(2)))
-    b       = (min((a+38399),recordinglength(2)))
-    c       = (min((b+38399),recordinglength(2))) 
-    d       = (min((c+38399),recordinglength(2))) 
-    e       = (min((d+38399),recordinglength(2)))
-    f       = (min((e+38399),recordinglength(2)))
-    g       = (min((f+38399),recordinglength(2)))
-    h       = (min((g+38399),recordinglength(2)))
+    a       = (1 + min(38399,recordinglength(2)));
+    b       = (min((a+38399),recordinglength(2)));
+    c       = (min((b+38399),recordinglength(2)));
+    d       = (min((c+38399),recordinglength(2)));
+    e       = (min((d+38399),recordinglength(2)));
+    f       = (min((e+38399),recordinglength(2)));
+    g       = (min((f+38399),recordinglength(2)));
+    h       = (min((g+38399),recordinglength(2)));
   
-    Timepoints = [a b c d e f g h] 
+    Timepoints = [a b c d e f g h]; 
     for t = 1:length(Timepoints)
         if t == 1
             fivemin   = EEG_only.data(:,1:Timepoints(t));

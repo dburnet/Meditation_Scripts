@@ -11,7 +11,7 @@ fid = fopen(outfile,'w');
         handorder  = namelist{3};
         sessionnumber  = regexprep(namelist{2}, '^S', '');
         % Data analysis to get AIS's:
-        x = ge_getSampleBounds(file.name);
+        x = me_getSampleBounds(file.name);
 
 
         fprintf(fid, '%s,%s,%s,%s,', subnum, sessionnumber, handorder, file.name);

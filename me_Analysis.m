@@ -1,6 +1,6 @@
-%this is to analysis Turner-Masuda meditation data, cleaned, it will
-%produce two plots one of alpha power and theta power another of alpha asym
-%score. It will produce one graph per subject per session. It needs to save
+%this is to analysis Turner-Masuda meditation data, cleaned, it takes the scores and will
+%produce two plots (one of alpha power and theta power*soon) another of alpha asym
+%score for two homologous electrode pairs. It will produce one graph per subject per session. It needs to save
 %the graphs so they can be opened later. 
 
 function AIS = me_Analysis(filename)
@@ -10,7 +10,7 @@ if regexp(filename, 'csv$')
  elseif regexp(filename, 'xlsx$')
      M = xlsread(filename,1,1);
  else 
-     error('me_restingAsym: File type unknown');
+     error('me_Analysis: File type unknown');
  end 
 % M = csvread(filename,',',0,1)%this reads in the file without the subnumb or the file name, change if that changes
 %here each row needs to be assigned to a different variable
@@ -23,9 +23,9 @@ dimensions = size(M);
         axis([1,9,-1,1])
         xlabel('Time by 5 minute increments')
         ylabel('Alpha Score')
-        TS = sprintf('Subject %d Session %d',M(i,1),M(i,2))
+        TS = sprintf('Subject %d Session %d',M(i,1),M(i,2));
         title(TS)
-        figtit = regexprep(TS,' ','_')
+        figtit = regexprep(TS,' ','_');
         savefig(figtit)
     end
     
